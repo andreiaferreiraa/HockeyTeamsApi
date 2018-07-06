@@ -24,6 +24,8 @@ namespace HockeyTeamAPI.Models
 
         public string NomeCompleto { get; set; }
 
+        public int Número { get; set; }
+
         public string Posicao { get; set; }
 
         [DisplayFormat(DataFormatString = "{0:yyyy/MM/dd}", ApplyFormatInEditMode = true)]

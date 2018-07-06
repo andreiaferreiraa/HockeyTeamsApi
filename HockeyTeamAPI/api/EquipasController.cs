@@ -12,12 +12,13 @@ using HockeyTeamAPI.Models;
 
 namespace HockeyTeamAPI.Controllers
 {
-    [RoutePrefix("api/equipas")]
-    public class JogadoresController : ApiController
+    public class EquipasController : ApiController
     {
+        
         private HockeyDB db = new HockeyDB();
 
         // GET: api/Equipas
+        [Route("api/Equipas")]
         public IHttpActionResult GetEquipas()
         {
             var resultado = db.Equipas
@@ -35,27 +36,23 @@ namespace HockeyTeamAPI.Controllers
 
         // GET: api/Equipas/5
         [ResponseType(typeof(Equipas))]
+        [Route("api/equipas/{id}")]
         public IHttpActionResult GetEquipas(int id)
         {
-            Equipas equipas = db.Equipas.Find(id);
-            if (equipas == null)
+            var resultado = db.Equipas.Select(equipa => new
             {
-                return NotFound();
-            }
-            var resultado = new
-            {
-                equipas.ID,
-                equipas.Nome,
-                equipas.Logotipo,
-                equipas.Plantel
-
-            };
+                equipa.ID,
+                equipa.Nome,
+                equipa.Logotipo,
+                equipa.Plantel
+            }).Where(equipa => equipa.ID == id).ToList();
 
             return Ok(resultado);
         }
 
         // GET: api/Equipas/Plantel
-        [HttpGet, Route("plantel")]
+        [HttpGet, Route("api/Equipas/plantel")]
+        [ResponseType(typeof(Equipas))]
         public IHttpActionResult GetPlantel()
         {
             var resultado = db.Equipas.Select(
@@ -65,21 +62,43 @@ namespace HockeyTeamAPI.Controllers
             return Ok(resultado);
         }
 
-        // PUT: api/Jogadores/5
+        //GET : api/Equipas/1/Jogadores
+        [Route("api/equipas/{id}/jogadores")]
+        public IHttpActionResult GetJogadoresEquipa(int id)
+        {
+            Equipas equipas = db.Equipas.Find(id);
+            if (equipas == null)
+            {
+                return NotFound();
+            }
+            var jogadores = db.Jogadores.Where(j => j.EquipaPK == equipas.ID).Select(r => new 
+            {
+            r.Nome,
+            r.Número,
+            r.Posicao,
+            r.Fotografia
+
+            }).ToList();
+
+            return Ok(jogadores);
+        }
+        
+
+        // PUT: api/Equipas/5
         [ResponseType(typeof(void))]
-        public IHttpActionResult PutJogadores(int id, Jogadores jogadores)
+        public IHttpActionResult PutEquipas(int id, Equipas equipas)
         {
             if (!ModelState.IsValid)
             {
                 return BadRequest(ModelState);
             }
 
-            if (id != jogadores.ID)
+            if (id != equipas.ID)
             {
                 return BadRequest();
             }
 
-            db.Entry(jogadores).State = EntityState.Modified;
+            db.Entry(equipas).State = EntityState.Modified;
 
             try
             {
@@ -87,7 +106,7 @@ namespace HockeyTeamAPI.Controllers
             }
             catch (DbUpdateConcurrencyException)
             {
-                if (!JogadoresExists(id))
+                if (!EquipasExists(id))
                 {
                     return NotFound();
                 }
@@ -100,35 +119,35 @@ namespace HockeyTeamAPI.Controllers
             return StatusCode(HttpStatusCode.NoContent);
         }
 
-        // POST: api/Jogadores
-        [ResponseType(typeof(Jogadores))]
-        public IHttpActionResult PostJogadores(Jogadores jogadores)
+        // POST: api/Equipas
+        [ResponseType(typeof(Equipas))]
+        public IHttpActionResult PostEquipas(Equipas equipas)
         {
             if (!ModelState.IsValid)
             {
                 return BadRequest(ModelState);
             }
 
-            db.Jogadores.Add(jogadores);
+            db.Equipas.Add(equipas);
             db.SaveChanges();
 
-            return CreatedAtRoute("DefaultApi", new { id = jogadores.ID }, jogadores);
+            return CreatedAtRoute("DefaultApi", new { id = equipas.ID }, equipas);
         }
 
-        // DELETE: api/Jogadores/5
-        [ResponseType(typeof(Jogadores))]
-        public IHttpActionResult DeleteJogadores(int id)
+        // DELETE: api/Equipas/5
+        [ResponseType(typeof(Equipas))]
+        public IHttpActionResult DeleteEquipas(int id)
         {
-            Jogadores jogadores = db.Jogadores.Find(id);
-            if (jogadores == null)
+            Equipas equipas = db.Equipas.Find(id);
+            if (equipas == null)
             {
                 return NotFound();
             }
 
-            db.Jogadores.Remove(jogadores);
+            db.Equipas.Remove(equipas);
             db.SaveChanges();
 
-            return Ok(jogadores);
+            return Ok(equipas);
         }
 
         protected override void Dispose(bool disposing)
@@ -140,9 +159,9 @@ namespace HockeyTeamAPI.Controllers
             base.Dispose(disposing);
         }
 
-        private bool JogadoresExists(int id)
+        private bool EquipasExists(int id)
         {
-            return db.Jogadores.Count(e => e.ID == id) > 0;
+            return db.Equipas.Count(e => e.ID == id) > 0;
         }
     }
 }

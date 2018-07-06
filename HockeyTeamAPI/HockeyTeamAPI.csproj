@@ -109,13 +109,46 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Global.asax" />
+    <Content Include="index.html" />
+    <Content Include="JogadoresFotosApi\AngeloGirao.jpg" />
+    <Content Include="JogadoresFotosApi\Caio.jpg" />
+    <Content Include="JogadoresFotosApi\CarlesGrau.jpg" />
+    <Content Include="JogadoresFotosApi\CarlosNicolia.jpg" />
+    <Content Include="JogadoresFotosApi\DiogoAlves.jpg" />
+    <Content Include="JogadoresFotosApi\DiogoRafael.jpg" />
+    <Content Include="JogadoresFotosApi\FerranFont.jpg" />
+    <Content Include="JogadoresFotosApi\GoncaloAlves.jpg" />
+    <Content Include="JogadoresFotosApi\HelderNunes.jpg" />
+    <Content Include="JogadoresFotosApi\HernaniDiniz.jpg" />
+    <Content Include="JogadoresFotosApi\IvoSilva.jpg" />
+    <Content Include="JogadoresFotosApi\JoaoPinto.jpg" />
+    <Content Include="JogadoresFotosApi\JoaoRodrigues.jpg" />
+    <Content Include="JogadoresFotosApi\JoaoSouto.jpg" />
+    <Content Include="JogadoresFotosApi\JordiBargallo.jpg" />
+    <Content Include="JogadoresFotosApi\JorgeSilva.jpg" />
+    <Content Include="JogadoresFotosApi\JoãoSardo.jpg" />
+    <Content Include="JogadoresFotosApi\MiguelRocha.jpg" />
+    <Content Include="JogadoresFotosApi\PedroGil.jpg" />
+    <Content Include="JogadoresFotosApi\PedroHenriques.jpg" />
+    <Content Include="JogadoresFotosApi\PedroMartins.jpg" />
+    <Content Include="JogadoresFotosApi\PedroMoreira.jpg" />
+    <Content Include="JogadoresFotosApi\RafaCosta.jpg" />
+    <Content Include="JogadoresFotosApi\RicardoBarreiros.jpg" />
+    <Content Include="JogadoresFotosApi\XavierPuigbi.jpg" />
+    <Content Include="Js\api.js" />
+    <Content Include="Js\logic.js" />
+    <Content Include="plantel\BenficaPlantel.jpg" />
+    <Content Include="plantel\OliveirensePlantel.jpg" />
+    <Content Include="plantel\PortoPlantel.jpg" />
+    <Content Include="plantel\SportingPlantel.jpg" />
+    <Content Include="plantel\TomarPlantel.jpg" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
-    <Compile Include="Controllers\EquipasController.cs" />
-    <Compile Include="Controllers\JogadoresController.cs" />
+    <Compile Include="api\EquipasController.cs" />
+    <Compile Include="api\JogadoresController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -138,6 +171,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Controllers\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
