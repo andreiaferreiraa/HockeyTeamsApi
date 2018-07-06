@@ -51,7 +51,7 @@ namespace HockeyTeamAPI.Controllers
             return Ok(resultado);
            
         }
-
+        
         // PUT: api/Multimedias/5
         [ResponseType(typeof(void))]
         public IHttpActionResult PutMultimedia(int id, Multimedia multimedia)

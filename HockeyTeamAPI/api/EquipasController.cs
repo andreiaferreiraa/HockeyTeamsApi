@@ -52,12 +52,16 @@ namespace HockeyTeamAPI.Controllers
 
         // GET: api/Equipas/Plantel
         [HttpGet, Route("api/Equipas/plantel")]
-        [ResponseType(typeof(Equipas))]
+        //[ResponseType(typeof(Equipas))]
         public IHttpActionResult GetPlantel()
         {
-            var resultado = db.Equipas.Select(
-                img => img.Plantel
-            ).ToList();
+            var resultado = db.Equipas
+                .Select(equipas => new
+                {
+                    equipas.ID,
+                    equipas.Plantel
+
+                }).ToList();
 
             return Ok(resultado);
         }

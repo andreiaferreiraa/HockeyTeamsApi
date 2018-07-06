@@ -26,7 +26,7 @@ function getJogadores(id) {
 
 
 function getDetalhesJogador(id) {
-    var url = "/api/Jogadores/" + id;
+    var url = "/api/Jogadores/"+id;
 
     return fetch(url, { headers: { Accept: 'application/json' } })
         .then(function (resposta) {
@@ -34,6 +34,19 @@ function getDetalhesJogador(id) {
                 return resposta.json();
             } else {
                 return Promise.reject(new Error("Erro ao obter Detalhes do Jogador"));
+            }
+        });
+}
+
+function getMultimedia(id) {
+    var url = "/api/Jogadores/" + id + "/multimedia";
+
+    return fetch(url, { headers: { Accept: 'application/json' } })
+        .then(function (resposta) {
+            if (resposta.status === 200) {
+                return resposta.json();
+            } else {
+                return Promise.reject(new Error("Erro ao obter Multimedia do Jogador"));
             }
         });
 }
