@@ -67,27 +67,7 @@ namespace HockeyTeamAPI.Controllers
             };
             return Ok(resultado);
         }
-
-
-
-            //var resultado = db.Jogadores.Select(jogador => new
-            //{
-            //    jogador.ID,
-            //    jogador.EquipaPK,
-            //    jogador.Nome,
-            //    jogador.NomeCompleto,
-            //    jogador.Número,
-            //    jogador.Posicao,
-            //    jogador.DataNascimento,
-            //    jogador.Nacionalidade,
-            //    jogador.Altura,
-            //    jogador.Peso,
-            //    jogador.Fotografia
-            //}).Where(jogador => jogador.ID == id).ToList();
-
-            //return Ok(resultado);
         
-           
         // PUT: api/Jogadores/5
         [ResponseType(typeof(void))]
         public IHttpActionResult PutJogadores(int id, Jogadores jogadores)
