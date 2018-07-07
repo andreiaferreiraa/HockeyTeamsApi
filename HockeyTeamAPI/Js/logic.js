@@ -8,30 +8,32 @@
 function ecraPlantel() {
     return getPlantel()
         .then(function (arrayPlantel) {
-
-            mostraPlantel(arrayPlantel);
+            var divPlantel = document.querySelector('#plantel');
+            for (i = 0; i < arrayPlantel.length; i++) {
+                divPlantel.appendChild(mostraPlantel(arrayPlantel[i]));
+            }
         })
         .catch(function (erro) {
             console.error(erro);
         });
 }
 
-function mostraPlantel(arrayPlantel) {
-    console.log(arrayPlantel);
-    var divPlantel = document.querySelector('#plantel');
-    for (var i = 0; i < arrayPlantel.length; i++) {
-        var divImagemPlantel = document.createElement('div');
-        var imagemPlantel = document.createElement('img');
-        imagemPlantel.src = "plantel/" + arrayPlantel[i];
+function mostraPlantel(plantel) {
+    var divImagemPlantel = document.createElement('div');
+    
+    var imagemPlantel = document.createElement('img');
+    imagemPlantel.setAttribute('class', 'imagemPlantel');
+    imagemPlantel.src = "plantel/" + plantel.Plantel;
+    imagemPlantel.addEventListener('click', function () {
+        mudar1aPagina(plantel.ID);
+    });
+    divImagemPlantel.appendChild(imagemPlantel);
+    return divImagemPlantel;
+}
 
-        imagemPlantel.addEventListener('click', function () {
-            mudar1aPagina(id);
-        });
+function cria(pos) {
 
-        divImagemPlantel.appendChild(imagemPlantel);
-        divPlantel.appendChild(divImagemPlantel);
-        
-    }
+    return imagemPlantel;
 }
 
 function mudar1aPagina(id) {
@@ -47,40 +49,50 @@ function mudar1aPagina(id) {
 function ecraJogadores(id) {
     return getJogadores(id)
         .then(function (arrayJogadores) {
-
-            mostraJogadores(arrayJogadores);
+            var divJogadores = document.querySelector('#jogadores');
+            for (var i = 0; i < arrayJogadores.length; i++) {
+                divJogadores.appendChild(mostraJogadores(arrayJogadores[i]));
+            }
         })
         .catch(function (erro) {
             console.error(erro);
         });
 }
 
-function mostraJogadores(arrayJogadores) {
-    //console.log(arrayJogadores);
-    var divJogadores = document.querySelector('#jogadores');
-    for (var i = 0; i < arrayJogadores.length; i++){
-        var jogadores = arrayJogadores[i];
-        //criação de elementos HTML
-        var divJogador = document.createElement('div');
-        var nomeJogador = document.createElement('p');
-        var numJogador = document.createElement('p');
-        var posicaoJogador = document.createElement('p');
-        var fotoJogador = document.createElement('img');
-        //preencher o conteudo desses elementos
-        nomeJogador.textContent = jogadores.Nome;
-        numJogador.textContent = jogadores.Numero;
-        posicaoJogador.textContent = jogadores.Posicao;
-        fotoJogador.src = "JogadoresFotosApi/" + jogadores.Fotografia;
+function mostraJogadores(jogadores) {
+    //console.log(jogadores);
+    //criação de elementos HTML
+    var divJogador = document.createElement('div');
+    var nomeJogador = document.createElement('p');
+    var numJogador = document.createElement('p');
+    var posicaoJogador = document.createElement('p');
+    var fotoJogador = document.createElement('img');
+    //preencher o conteudo desses elementos
+    nomeJogador.textContent = jogadores.Nome;
+    numJogador.textContent = jogadores.Numero;
+    posicaoJogador.textContent = jogadores.Posicao;
+    fotoJogador.src = "JogadoresFotosApi/" + jogadores.Fotografia;
+    fotoJogador.addEventListener('click', function () {
+        mostraEcra2(jogadores.ID);
+    });
 
-        //insersao dos elementos Html  dentro dos respetivos Div's
-        divJogador.appendChild(nomeJogador);
-        divJogador.appendChild(numJogador);
-        divJogador.appendChild(posicaoJogador);
-        divJogador.appendChild(fotoJogador);
-        divJogadores.appendChild(divJogador);
-    }
+    //insersao dos elementos Html  dentro dos respetivos Div's
+    divJogador.appendChild(nomeJogador);
+    divJogador.appendChild(numJogador);
+    divJogador.appendChild(posicaoJogador);
+    divJogador.appendChild(fotoJogador);
+    return divJogador;
 }
 
+
+
+function mostraEcra2(id) {
+    var divJogadores = document.querySelector('#jogadores');
+    var divjogadorDetalhes = document.querySelector('#detalhes');
+    ecraDetalhesJogadores(id);
+    divJogadores.style.display = 'none';
+    divjogadorDetalhes.style.display = 'block';
+}
 
 
 //*************************************************** DETALHES DOS JOGADORES *********************************************
@@ -88,8 +100,10 @@ function mostraDetalhesJogador(detalhes) {
     var divDetalhesJogadores = document.querySelector('#detalhes');
     //criacao dos elementos HTML
     var divDetalhes = document.createElement('div');
+    //divDetalhes.setAttribute('class', 'detalhesJogador');
     var nomeJogador = document.createElement('h5');
     var fotoJogador = document.createElement('img');
+    fotoJogador.setAttribute('class', 'imagemJogador');
     var nomeCompJogador = document.createElement('p');
     var numJogador = document.createElement('p');
     var posicao = document.createElement('p');
@@ -118,20 +132,20 @@ function mostraDetalhesJogador(detalhes) {
     divDetalhes.appendChild(altura);
     divDetalhes.appendChild(peso);
     divDetalhesJogadores.appendChild(divDetalhes);
-    getMultimedia(1).then( function (multimedia) {
-            var divInic = document.createElement('div');
-            for (var i = 0; i < multimedia.length; i++) {
-                var fotosJogador = document.createElement('img');
-                fotosJogador.src = "Multimédia/" + multimedia[i].NomeFotografia;
-                divInic.appendChild(fotosJogador);
-            }
-            divDetalhesJogadores.appendChild(divInic);
-        });  
+    getMultimedia(detalhes.ID).then(function (multimedia) {
+        var divInic = document.createElement('div');
+        for (var i = 0; i < multimedia.length; i++) {
+            var fotosJogador = document.createElement('img');
+            fotosJogador.src = "Multimédia/" + multimedia[i].NomeFotografia;
+            divInic.appendChild(fotosJogador);
+        }
+        divDetalhesJogadores.appendChild(divInic);
+    });
 }
 
 
-function ecraDetalhesJogadores() {
-    return getDetalhesJogador(1)
+function ecraDetalhesJogadores(id) {
+    return getDetalhesJogador(id)
         .then(function (detalhes) {
             mostraDetalhesJogador(detalhes);
         })
@@ -139,7 +153,4 @@ function ecraDetalhesJogadores() {
             console.error(erro);
         });
 }
-
-
-
 

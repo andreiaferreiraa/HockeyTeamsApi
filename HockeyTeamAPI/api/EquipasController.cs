@@ -65,6 +65,25 @@ namespace HockeyTeamAPI.Controllers
 
             return Ok(resultado);
         }
+        // GET: api/Equipas/1/Plantel
+        [HttpGet, Route("api/Equipas/{id}/plantel")]
+        //[ResponseType(typeof(Equipas))]
+        public IHttpActionResult GetPlantelEquipa(int id)
+        {
+            Equipas equipas = db.Equipas.Find(id);
+            if (equipas == null)
+            {
+                return NotFound();
+            }
+           
+            var resultado = new
+            {
+                equipas.ID,
+                equipas.Plantel
+            };
+            return Ok(resultado);
+        }
+
 
         //GET : api/Equipas/1/Jogadores
         [Route("api/equipas/{id}/jogadores")]
@@ -77,6 +96,7 @@ namespace HockeyTeamAPI.Controllers
             }
             var jogadores = db.Jogadores.Where(j => j.EquipaPK == equipas.ID).Select(r => new 
             {
+            r.ID,
             r.Nome,
             r.Número,
             r.Posicao,

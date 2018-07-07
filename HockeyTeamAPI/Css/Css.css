@@ -1,0 +1,26 @@
+﻿body {
+
+    margin:0px;
+    border:0px;
+}
+
+.imagemPlantel {
+    object-fit:cover;
+    display:flex;
+    width: 100%;
+    height: 400px;
+}
+
+/*.detalhesJogador{
+
+}*/
+
+.imagemJogador {
+    float: left;
+    margin-left: 100px;
+    margin-right: 50px;
+    margin-bottom: 50px;
+    height: 478px;
+    width: 365px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
