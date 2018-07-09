@@ -110,6 +110,8 @@
   <ItemGroup>
     <Content Include="Css\Css.css" />
     <Content Include="Global.asax" />
+    <Content Include="Icons\Back.jpg" />
+    <Content Include="Icons\Home.jpg" />
     <Content Include="index.html" />
     <Content Include="JogadoresFotosApi\AngeloGirao.jpg" />
     <Content Include="JogadoresFotosApi\Caio.jpg" />
@@ -284,11 +286,8 @@
     <Content Include="Multimédia\XavierPuigbi2.jpg" />
     <Content Include="Multimédia\XavierPuigbi3.jpg" />
     <Content Include="Multimédia\XavierPuigbi4.jpg" />
-    <Content Include="plantel\Benfica.jpg" />
-    <Content Include="plantel\Oliveirense.jpg" />
-    <Content Include="plantel\Porto.jpg" />
-    <Content Include="plantel\Sporting.jpg" />
-    <Content Include="plantel\Tomar.jpg" />
+    <Content Include="plantel\BenficaPlantel.jpg" />
+    <Content Include="plantel\PortoPlantel.jpg" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
