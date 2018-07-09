@@ -7,18 +7,27 @@
     <link href="Css/Css.css" rel="stylesheet" />
 </head>
 <body>
+
+    <div id="navegacao">
+        <img id="homeIcon" src="Icons/Home.jpg" style="height:30px; width:30px; display:none; margin-top:10px; margin-left:10px; right:0" onclick="funcaoHomeIncon()" />
+        <img id="iconBack" src="Icons/Back.jpg" style="height:30px; width:30px; display:none; margin-top:10px; margin-left:10px;" onclick="funcaoBackIncon()" />
+    </div>
+
     <div id="plantel">
 
     </div>
+
     <div id="jogadores">
 
     </div>
+
     <div id="detalhes" style="display:none">
         <div id="det"></div>
+
         <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
             <ol class="carousel-indicators">
                 <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
-             </ol>
+            </ol>
             <div class="carousel-inner">
             </div>
             <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
@@ -31,6 +40,8 @@
             </a>
         </div>
     </div>
+
+
     <script src="Js/logic.js"></script>
     <script src="Js/api.js"></script>
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>

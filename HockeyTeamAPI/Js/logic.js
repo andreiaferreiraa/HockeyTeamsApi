@@ -36,13 +36,34 @@ function cria(pos) {
     return imagemPlantel;
 }
 
+//função que permite mudar do div inicial para o div dos jogadores
 function mudar1aPagina(id) {
     var divInicial = document.querySelector('#plantel');
     var divPagJogadores = document.querySelector('#jogadores');
+    var icon = document.querySelector('#homeIcon');
+    var iconBack = document.querySelector('#iconBack');
+    divPagJogadores.innerHTML = "";
     ecraJogadores(id);
+    icon.style.display = 'block';
+    iconBack.style.display = 'none';
     divInicial.style.display = 'none';
     divPagJogadores.style.display = 'block';
 }
+
+//função reference ao icon Home
+function funcaoHomeIncon() {
+    var divJogadores = document.querySelector('#jogadores');
+    var divDetalhes = document.querySelector('#detalhes');
+    var divPrincipal = document.querySelector('#plantel');
+    var icon = document.querySelector('#homeIcon');
+    divPrincipal.innerHTML = "";
+    ecraPlantel();
+    divPrincipal.style.display = 'block';
+    divJogadores.style.display = 'none';
+    divDetalhes.style.display = 'none';
+    icon.style.display = 'none';
+}
+
 
 //********************************************** JOGADORES **********************************************************
 
@@ -77,22 +98,23 @@ function mostraJogadores(jogadores) {
     fotoJogador.addEventListener('click', function () {
         mostraEcra2(jogadores.ID);
     });
-
     //insersao dos elementos Html  dentro dos respetivos Div's
-    
-    //divJogador.appendChild(numJogador);
-    //divJogador.appendChild(posicaoJogador);
     divJogador.appendChild(fotoJogador);
     //divJogador.appendChild(nomeJogador);
     return divJogador;
 }
 
 
-
 function mostraEcra2(id) {
     var divJogadores = document.querySelector('#jogadores');
     var divjogadorDetalhes = document.querySelector('#detalhes');
+    var divDet = document.querySelector('#det');
+    var divCarrossel = document.querySelector('.carousel-inner');
+    var iconBack = document.querySelector('#iconBack');
+    divDet.innerHTML = "";
+    divCarrossel.innerHTML = "";
     ecraDetalhesJogadores(id);
+    iconBack.style.display = 'block';
     divJogadores.style.display = 'none';
     divjogadorDetalhes.style.display = 'block';
 }
@@ -177,7 +199,6 @@ function mostraDetalhesJogador(detalhes) {
     divDetalhes.appendChild(nomeJogador);
     divDetalhes.appendChild(barra);
     divDetalhes.appendChild(fotoJogador);
-
     divCadaDetalhe.appendChild(paragrafoNome);
     divCadaDetalhe.appendChild(nomeCompJogador);
     divCadaDetalhe.appendChild(paragrafoNumero);
@@ -229,25 +250,29 @@ function mostraDetalhesJogador(detalhes) {
             divImagem.appendChild(cadaImagem);
             let im = document.querySelector('.carousel-inner');
             im.appendChild(divImagem);
-
-
-            //<div class="carousel-item active">
-            //    <img class="d-block w-100" src="...">
-            //    </div>
-
-
-            //var fotosJogador = document.createElement('img');
-            //fotosJogador.src = "Multimédia/" + multimedia[i].NomeFotografia;
-            //divInic.appendChild(fotosJogador);
         }
-        //divDetalhesJogadores.appendChild(divInic);
+        
     });
+}
+
+
+//funcao referente ao Icon Back
+function funcaoBackIncon() {
+    var divDetalhes = document.querySelector('#detalhes');
+    var divJogadores = document.querySelector('#jogadores');
+    var icon = document.querySelector('#iconBack');
+    ecraJogadores();
+    divDetalhes.style.display = 'none';
+    divJogadores.style.display = 'block';
+    icon.style.display = 'none';
+    
 }
 
 
 function ecraDetalhesJogadores(id) {
     return getDetalhesJogador(id)
         .then(function (detalhes) {
+
             mostraDetalhesJogador(detalhes);
         })
         .catch(function (erro) {
