@@ -1,15 +1,31 @@
 ﻿function getPlantel() {
     var url = "/api/Equipas/plantel";
-
+    //var url = "/api/Equipas";
     return fetch(url, { headers: { Accept: 'application/json' } })
         .then(function (resposta) {
             if (resposta.status === 200) {
                 return resposta.json();
             } else {
-                return Promise.reject(new Error("Erro ao obter Plantel"));
+                return Promise.reject(new Error("Erro ao obter Logotipo"));
             }
         });
 }
+
+
+function getEquipa(id) {
+    var url = "api/equipas/"+id;
+    return fetch(url, { headers: { Accept: 'application/json' } })
+        .then(function (resposta) {
+            if (resposta.status === 200) {
+                return resposta.json();
+            } else {
+                return Promise.reject(new Error("Erro ao obter Equipa"));
+            }
+        });
+}
+
+
+
 
 function getJogadores(id) {
     var url = "/api/Equipas/"+id+"/jogadores";

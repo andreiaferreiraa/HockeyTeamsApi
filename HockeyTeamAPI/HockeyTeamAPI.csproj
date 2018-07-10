@@ -109,6 +109,11 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Css\Css.css" />
+    <Content Include="EquipasFotos\Benfica.jpg" />
+    <Content Include="EquipasFotos\Oliveirense.jpg" />
+    <Content Include="EquipasFotos\Porto.jpg" />
+    <Content Include="EquipasFotos\Sporting.jpg" />
+    <Content Include="EquipasFotos\Tomar.jpg" />
     <Content Include="Global.asax" />
     <Content Include="Icons\Back.jpg" />
     <Content Include="Icons\Home.jpg" />

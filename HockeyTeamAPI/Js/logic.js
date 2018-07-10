@@ -18,9 +18,36 @@ function ecraPlantel() {
         });
 }
 
+//function ecraInicial() {
+//    return getEquipas()
+//        .then(function (arrayEquipas) {
+//            var divEquipas = document.querySelector('#equipas');
+//            for (i = 0; i < arrayEquipas; i++) {
+//                divEquipas.appendChild(mostraEquipas(arrayEquipas[i]));
+//            }
+//        })
+//        .catch(function (erro) {
+//            console.error(erro)
+//        });
+//}
+
+//function mostraEquipas(equipa) {
+//    var divImagemEquipa = document.createElement('div');
+//    var imagemPlantel = document.createElement('img');
+//    imagemPlantel.setAttribute('class', 'imagemPlantel');
+//    imagemPlantel.src = "plantel/" + equipa.Plantel;
+//    var logotipo = document.createElement('img');
+//    logotipo.src = "EquipasFotos/" + equipa.Logotipo;
+//    imagemPlantel.addEventListener('click', function () {
+//        mudar1aPagina(plantel.ID);
+//    });
+//    imagemPlantel.appendChild(logotipo);
+//    divImagemEquipa.appendChild(imagemPlantel);
+//    return divImagemEquipa;
+//}
+
 function mostraPlantel(plantel) {
     var divImagemPlantel = document.createElement('div');
-    
     var imagemPlantel = document.createElement('img');
     imagemPlantel.setAttribute('class', 'imagemPlantel');
     imagemPlantel.src = "plantel/" + plantel.Plantel;
@@ -68,9 +95,19 @@ function funcaoHomeIncon() {
 //********************************************** JOGADORES **********************************************************
 
 function ecraJogadores(id) {
+    var divJogadores = document.querySelector('#jogadores');
+    //mostra o logotipo e nome da Equipa
+    getEquipa(id)
+        .then(function (equipas) {
+            divJogadores.appendChild(mostraEquipas(equipas));
+        })
+        .catch(function (erro) {
+            console.error(erro);
+        });
+    //mostra os jogadores dessa equipa
     return getJogadores(id)
         .then(function (arrayJogadores) {
-            var divJogadores = document.querySelector('#jogadores');
+
             for (var i = 0; i < arrayJogadores.length; i++) {
                 divJogadores.appendChild(mostraJogadores(arrayJogadores[i]));
             }
@@ -79,6 +116,25 @@ function ecraJogadores(id) {
             console.error(erro);
         });
 }
+
+
+//funcao que vai buscar o logotipo e o nome da equipa
+function mostraEquipas(equipas) {
+   //criação de elementos e atribuição de classes
+    var divLogNome = document.createElement('div');
+    var imgLogotipo = document.createElement('img');
+    imgLogotipo.setAttribute('class', 'logotipo');
+    var divNomeEquipa = document.createElement('h3');
+    divNomeEquipa.setAttribute('class', 'nomeEquipa');
+    //preenchimento dos elementos HTML
+    imgLogotipo.src = "EquipasFotos/" + equipas[0].Logotipo;
+    console.log(equipas);
+    divNomeEquipa.textContent = equipas[0].Nome;
+    divLogNome.appendChild(imgLogotipo);
+    divLogNome.appendChild(divNomeEquipa);
+    return divLogNome;
+}
+
 
 function mostraJogadores(jogadores) {
     //criação de elementos HTML
@@ -214,7 +270,7 @@ function mostraDetalhesJogador(detalhes) {
     divCadaDetalhe.appendChild(paragrafoPeso);
     divCadaDetalhe.appendChild(peso);
     divDetalhes.appendChild(divCadaDetalhe);
-    
+
     divDetalhesJogadores.appendChild(divDetalhes);
     getMultimedia(detalhes.ID).then(function (multimedia) {
         //var divInic = document.createElement('div');
@@ -230,7 +286,7 @@ function mostraDetalhesJogador(detalhes) {
         divImagem.appendChild(cadaImagem);
         let im = document.querySelector('.carousel-inner');
         im.appendChild(divImagem);
-        for (var i = 1; i <= multimedia.length-1; i++) {
+        for (var i = 1; i <= multimedia.length - 1; i++) {
             //criação da lista de imagens para o "carrosel"
             var listaImagens = document.createElement('li');
             listaImagens.setAttribute('data-target', '#carouselExampleIndicators');
@@ -251,7 +307,7 @@ function mostraDetalhesJogador(detalhes) {
             let im = document.querySelector('.carousel-inner');
             im.appendChild(divImagem);
         }
-        
+
     });
 }
 
@@ -262,10 +318,10 @@ function funcaoBackIncon() {
     var divJogadores = document.querySelector('#jogadores');
     var icon = document.querySelector('#iconBack');
     ecraJogadores();
+    icon.style.display = 'none';
     divDetalhes.style.display = 'none';
     divJogadores.style.display = 'block';
-    icon.style.display = 'none';
-    
+
 }
 
 
