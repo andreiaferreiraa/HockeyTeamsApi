@@ -1,5 +1,5 @@
 ﻿function getPlantel() {
-    var url = "/api/Equipas/plantel";
+    var url = "/api/Equipas";
     //var url = "/api/Equipas";
     return fetch(url, { headers: { Accept: 'application/json' } })
         .then(function (resposta) {

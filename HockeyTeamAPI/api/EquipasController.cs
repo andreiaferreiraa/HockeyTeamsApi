@@ -26,6 +26,11 @@ namespace HockeyTeamAPI.Controllers
                 {
                     equipa.ID,
                     equipa.Nome,
+                    equipa.NomeTodo,
+                    equipa.DataFundacao,
+                    equipa.Pais,
+                    equipa.Cidade,
+                    equipa.Presidente,
                     equipa.Logotipo,
                     equipa.Plantel
 
@@ -59,6 +64,7 @@ namespace HockeyTeamAPI.Controllers
                 .Select(equipas => new
                 {
                     equipas.ID,
+                    equipas.Nome,
                     equipas.Plantel
 
                 }).ToList();

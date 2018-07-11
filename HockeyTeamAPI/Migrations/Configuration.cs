@@ -19,11 +19,11 @@ namespace HockeyTeamAPI.Migrations
             //*****************************************************************************************************************
             // adiciona Equipas
             var equipas = new List<Equipas> {
-               new Equipas {ID=1, Nome="Benfica" ,Logotipo="Benfica.jpg", Plantel="BenficaPlantel.jpg"},
-               new Equipas {ID=2, Nome="Sporting" ,Logotipo="Sporting.jpg", Plantel="SportingPlantel.jpg"},
-               new Equipas {ID=3, Nome="FC Porto",Logotipo="Porto.jpg", Plantel="PortoPlantel.jpg"},
-               new Equipas {ID=4, Nome="UD Oliveirense",Logotipo="Oliveirense.jpg", Plantel="OliveirensePlantel.jpg"},
-               new Equipas {ID=5, Nome="Sp. Tomar", Logotipo="Tomar.jpg", Plantel="TomarPlantel.jpg"},
+               new Equipas {ID=1, Nome="Benfica", NomeTodo="Sport Lisboa e Benfica", DataFundacao = new DateTime(1904,02,28), Pais = "Portugal", Cidade="Lisboa", Presidente="Luís Filipe Vieira", Logotipo="Benfica.jpg", Plantel="BenficaPlantel.jpg"},
+               new Equipas {ID=2, Nome="Sporting", NomeTodo="Sporting Clube de Portugal", DataFundacao= new DateTime(1906,07,01), Pais="Portugal", Cidade="Lisboa", Presidente="Bruno de Carvalho", Logotipo="Sporting.jpg", Plantel="SportingPlantel.jpg"},
+               new Equipas {ID=3, Nome="FC Porto", NomeTodo="Futebol Clube do Porto", DataFundacao=new DateTime(1983,09,28), Pais="Portugal", Cidade="Porto", Presidente="Jorge Nuno de Lima Pinto da Costa", Logotipo="Porto.jpg", Plantel="PortoPlantel.jpg"},
+               new Equipas {ID=4, Nome="UD Oliveirense", NomeTodo="União Desportiva Oliveirense", DataFundacao=new DateTime(1922,10,25), Pais="Portugal", Cidade="Oliveira de Azeméis", Presidente="Horácio Bastos", Logotipo="Oliveirense.jpg", Plantel="OliveirensePlantel.jpg"},
+               new Equipas {ID=5, Nome="Sp. Tomar", NomeTodo="Sporting Clube de Tomar", DataFundacao=new DateTime(1915,02,26), Pais="Portugal", Cidade="Tomar", Presidente = "Ivo Santos", Logotipo="Tomar.jpg", Plantel="TomarPlantel.jpg"},
 
             };
             equipas.ForEach(ee => context.Equipas.AddOrUpdate(e => e.ID, ee));
