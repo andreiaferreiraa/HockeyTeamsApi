@@ -24,6 +24,18 @@ function getEquipa(id) {
         });
 }
 
+function getEquipaHistoria(id) {
+    var url = "api/equipas/" + id + "/historia";
+    return fetch(url, { headers: { Accept: 'application/json' } })
+        .then(function (resposta) {
+            if (resposta.status === 200) {
+                return resposta.json();
+            } else {
+                return Promise.reject(new Error("Erro ao obter Historia"));
+            }
+        });
+}
+
 
 
 

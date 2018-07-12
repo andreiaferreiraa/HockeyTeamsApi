@@ -19,7 +19,7 @@ namespace HockeyTeamAPI.Models
         public string Nome { get; set; }
 
         public string NomeTodo { get; set; }
-        
+
         [DisplayFormat(DataFormatString = "{0:yyyy/MM/dd}", ApplyFormatInEditMode = true)]
         public DateTime DataFundacao { get; set; }
 
@@ -36,6 +36,16 @@ namespace HockeyTeamAPI.Models
         public string EpocaTacaPortugal { get; set; }
 
         public string EpocaSupertacaAntonioLivramento { get; set; }
+
+        public string NumTitulosCampNac { get; set; }
+
+        public string NumTitulosCampMetro {get; set;}
+
+        public string NumTitulosTacaPortugal { get; set; }
+
+        public string NumSupertacaAntLivr { get; set; }
+
+        public string Historia { get; set; }
 
         public string Logotipo { get; set; }
 

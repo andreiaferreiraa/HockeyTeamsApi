@@ -86,7 +86,7 @@ function ecraJogadores(id) {
                 .then(function (arrayJogadores) {
                     var divDadosPlantel = document.createElement('div');
                     divDadosPlantel.setAttribute('class', 'divDadosPlantel');
-                    var tituloPlantel = document.createElement('h5');
+                    var tituloPlantel = document.createElement('h4');
                     tituloPlantel.setAttribute('class', 'tituloPlantel');
                     tituloPlantel.textContent = "PLANTEL";
                     divDadosPlantel.appendChild(tituloPlantel);

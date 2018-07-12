@@ -65,6 +65,28 @@ namespace HockeyTeamAPI.Controllers
             return Ok(resultado);
         }
 
+        [ResponseType(typeof(Equipas))]
+        [Route("api/equipas/{id}/historia")]
+        public IHttpActionResult GetHistoria(int id)
+        {
+            Equipas equipas = db.Equipas.Find(id);
+            if (equipas == null)
+            {
+                return NotFound();
+            }
+
+            var resultado = new
+            {
+                equipas.Historia
+            };
+
+
+            return Ok(resultado);
+        }
+
+
+
+
         // GET: api/Equipas/Plantel
         [HttpGet, Route("api/Equipas/plantel")]
         //[ResponseType(typeof(Equipas))]
