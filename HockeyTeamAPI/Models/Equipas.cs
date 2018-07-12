@@ -29,6 +29,14 @@ namespace HockeyTeamAPI.Models
 
         public string Presidente { get; set; }
 
+        public string EpocaCampeonatoPortugues { get; set; }
+
+        public string EpocaCampeonatoMetropolitano { get; set; }
+
+        public string EpocaTacaPortugal { get; set; }
+
+        public string EpocaSupertacaAntonioLivramento { get; set; }
+
         public string Logotipo { get; set; }
 
         public string Plantel { get; set; }

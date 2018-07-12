@@ -43,23 +43,129 @@
 }
 
 .nomeEquipa {
-    text-align:center;
+    text-align: center;
+    font-style: italic;
+    font-size: 100px;
+    color: gray;
+    text-shadow: 2px 2px 4px #000000
 }
 
 
 hr.barra1 {
-    margin-top:72px;
+    margin-top:-15px;
     height: 10px;
     border: 0;
     box-shadow: 0 10px 10px -10px #8c8b8b inset;
 }
 
+
+.divOutrasInf {
+    /*float:left;*/
+    bottom: 0;
+    left: 0;
+    /*margin-top: 500px;*/
+}
+
+.divTituloInf {
+    /*o primeiro é top, right, bottom, left*/
+    margin: 0px 500px 5px 10px;
+    border-bottom: 1px solid black;
+}
+
+.tituloInf {
+    margin-left: 20px;
+    color: darkcyan;
+    font-style: italic;
+}
+
+.divDadosPlantel {
+    margin: 0px 500px 5px 10px;
+    border-bottom: 1px solid black;
+}
+
+.tituloPlantel {
+    margin-left: 20px;
+    color: darkcyan;
+    font-style: italic;
+}
+
+
+
+
+.nomeTodoTitulo {
+    font-size: 15px;
+    font-weight: bold;
+    margin-bottom: 0px;
+    margin-left: 10px;
+}
+
+
+.nomeTodo {
+    font-size: 15px;
+    margin-top: 0px;
+    margin-left: 10px;
+}
+
+.dataFundTitulo {
+    font-size: 15px;
+    font-weight: bold;
+    margin-bottom: 0px;
+    margin-left: 10px;
+}
+
+.dataFund {
+    font-size: 15px;
+    margin-top: 0px;
+    margin-left: 10px;
+}
+
+.paisTitulo {
+    font-size: 15px;
+    font-weight: bold;
+    margin-bottom: 0px;
+    margin-left: 10px;
+}
+
+.pais {
+    font-size: 15px;
+    margin-top: 0px;
+    margin-left: 10px;
+}
+
+.cidadeTitulo {
+    font-size: 15px;
+    font-weight: bold;
+    margin-bottom: 0px;
+    margin-left: 10px;
+}
+
+
+.cidade {
+    font-size: 15px;
+    margin-top: 0px;
+    margin-left: 10px;
+}
+
+.presidenteTitulo {
+    font-size: 15px;
+    font-weight: bold;
+    margin-bottom: 0px;
+    margin-left: 10px;
+}
+
+.presidente {
+    font-size: 15px;
+    margin-top: 0px;
+    margin-left: 10px;
+}
+
+
 #carouselExampleIndicators {
     width: 500px;
     height: 400px;
-    margin-left:auto;
-    margin-right:auto;
-    margin-bottom:100px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 100px;
 }
 
 #imagemJogador {
@@ -71,17 +177,20 @@ hr.barra1 {
 
 
 .divJogadores {
+    min-height:330px;
+    margin-top:20px;
+    margin-bottom:30px;
 }
 
 
 .fotoJogador1 {
-    margin-top:10px;
-    margin-left:10px;
+    margin-top: 10px;
+    margin-left: 7px;
     transition: transform .2s;
     width: 250px;
     height: 300px;
     float: left;
-    display: flex;
+    display: block;
     flex-wrap: nowrap;
     /*margin-left: 50px;*/
 }
@@ -93,10 +202,29 @@ hr.barra1 {
         transform: scale(1.10);
 }
 
+.informacaoDireita{
+    min-height:200px;
+    float:left;
+    
+}
+
+.informacaoEsquerda {
+    min-width:200px;
+    float:right;
+    margin-right:850px;
+
+}
+
+.tabela {
+    float:right;
+}
+
+
+
 
 .nomeJogador {
     font-family: 'Roboto Condensed', sans-serif;
-     margin-left: 20px;
+    margin-left: 20px;
     margin-top: 20px;
     color: dimgray;
 }

@@ -24,7 +24,7 @@ function mostraPlantel(plantel) {
     var imagemPlantel = document.createElement('img');
     imagemPlantel.setAttribute('class', 'imagemPlantel');
     var divNomeEquipa = document.createElement('div');
-   
+
     imagemPlantel.src = "plantel/" + plantel.Plantel;
     imagemPlantel.addEventListener('click', function () {
         mudar1aPagina(plantel.ID);
@@ -46,7 +46,7 @@ function cria(pos) {
 //função que permite mudar do div inicial para o div dos jogadores
 function mudar1aPagina(id) {
     var divInicial = document.querySelector('#plantel');
-    var divPagJogadores = document.querySelector('#jogadores');
+    var divPagJogadores = document.querySelector('#info');
     var icon = document.querySelector('#homeIcon');
     var iconBack = document.querySelector('#iconBack');
     divPagJogadores.innerHTML = "";
@@ -54,7 +54,7 @@ function mudar1aPagina(id) {
     icon.style.display = 'block';
     iconBack.style.display = 'none';
     divInicial.style.display = 'none';
-    divPagJogadores.style.display = 'block';
+    document.querySelector('#jogadores').style.display = 'block';
 }
 
 //função reference ao icon Home
@@ -77,32 +77,52 @@ function funcaoHomeIncon() {
 //********************************************** JOGADORES **********************************************************
 
 function ecraJogadores(id) {
-    var divJogadores = document.querySelector('#jogadores');
+    var divJogadores = document.querySelector('#info');
     //mostra o logotipo e nome da Equipa
     getEquipa(id)
         .then(function (equipas) {
             divJogadores.appendChild(mostraEquipas(equipas));
+            getJogadores(id)
+                .then(function (arrayJogadores) {
+                    var divDadosPlantel = document.createElement('div');
+                    divDadosPlantel.setAttribute('class', 'divDadosPlantel');
+                    var tituloPlantel = document.createElement('h5');
+                    tituloPlantel.setAttribute('class', 'tituloPlantel');
+                    tituloPlantel.textContent = "PLANTEL";
+                    divDadosPlantel.appendChild(tituloPlantel);
+                    divJogadores.appendChild(divDadosPlantel);
+                    var divJogadoresFotos = document.createElement('div');
+                    divJogadoresFotos.setAttribute('class', 'divJogadores');
+                    for (var i = 0; i < arrayJogadores.length; i++) {
+                        divJogadoresFotos.appendChild(mostraJogadores(arrayJogadores[i]));
+                    }
+                    divJogadores.appendChild(divJogadoresFotos);
+                    getEquipa(id)
+                        .then(function (equipa) {
+                            //divJogadores.appendChild(
+                            mostraDetalhesEquipa(equipa);
+                        })
+                        .catch(function (erro) {
+                            console.error(erro);
+                        });
+                })
+                .catch(function (erro) {
+                    console.error(erro);
+                });
         })
         .catch(function (erro) {
             console.error(erro);
         });
-    //mostra os jogadores dessa equipa
-    return getJogadores(id)
-        .then(function (arrayJogadores) {
 
-            for (var i = 0; i < arrayJogadores.length; i++) {
-                divJogadores.appendChild(mostraJogadores(arrayJogadores[i]));
-            }
-        })
-        .catch(function (erro) {
-            console.error(erro);
-        });
+    //mostra os jogadores dessa equipa
+
+
 }
 
 
 //funcao que vai buscar o logotipo e o nome da equipa
 function mostraEquipas(equipas) {
-   //criação de elementos e atribuição de classes
+    //criação de elementos e atribuição de classes
     var divLogNome = document.createElement('div');
     var imgLogotipo = document.createElement('img');
     imgLogotipo.setAttribute('class', 'logotipo');
@@ -113,6 +133,7 @@ function mostraEquipas(equipas) {
     //preenchimento dos elementos HTML
     imgLogotipo.src = "EquipasFotos/" + equipas[0].Logotipo;
     divNomeEquipa.textContent = equipas[0].Nome;
+    //preenchimento no div
     divLogNome.appendChild(imgLogotipo);
     divLogNome.appendChild(divNomeEquipa);
     divLogNome.appendChild(barra1);
@@ -122,27 +143,61 @@ function mostraEquipas(equipas) {
 
 function mostraJogadores(jogadores) {
     //criação de elementos HTML
+
     var divJogador = document.createElement('div');
-    divJogador.setAttribute('class', 'divJogadores');
-    var nomeJogador = document.createElement('p');
-    nomeJogador.setAttribute('class', 'NomeJogador');
-    var numJogador = document.createElement('p');
-    var posicaoJogador = document.createElement('p');
+    divJogador.setAttribute('class', 'divJogador');
+    //var divCadaJogador = document.createElement('div');
+    //divCadaJogador.setAttribute('class', 'divCadaJogador');
     var fotoJogador = document.createElement('img');
     fotoJogador.setAttribute('class', 'fotoJogador1');
+    //var divNomeJogador = document.createElement('div');
+    //divNomeJogador.setAttribute('class', 'divNomeJogador');
+    //var nomeJogador = document.createElement('p');
+    //nomeJogador.setAttribute('class', 'nomeJogador');
     //preencher o conteudo desses elementos
-    //numJogador.textContent = jogadores.Numero;
-    nomeJogador.textContent = jogadores.Nome;
-    posicaoJogador.textContent = jogadores.Posicao;
     fotoJogador.src = "JogadoresFotosApi/" + jogadores.Fotografia;
     fotoJogador.addEventListener('click', function () {
         mostraEcra2(jogadores.ID);
     });
+    //nomeJogador.textContent = jogadores.Nome;
     //insersao dos elementos Html  dentro dos respetivos Div's
+    //divNomeJogador.appendChild(nomeJogador);
     divJogador.appendChild(fotoJogador);
+    //divJogador.appendChild(divNomeJogador);
     //divJogador.appendChild(nomeJogador);
     return divJogador;
 }
+
+
+function mostraDetalhesEquipa(equipa) {
+    //selecao dos elementos HTML
+    var divOutrasInformacoes = document.querySelector('.divOutrasInf');
+    var nomeEquipas = document.querySelector('.nomeTodo');
+    var dataFundacaoEquipa = document.querySelector('.dataFund');
+    var paisEquipa = document.querySelector('.pais');
+    var cidadeEquipa = document.querySelector('.cidade');
+    var presidenteEquipa = document.querySelector('.presidente');
+    //selecao dos elementos da tabela
+    var epocaCampNac = document.querySelector('#nEpocasCampNac');
+    var epocaCampMetropolitano = document.querySelector('#nEpocasCampMetro');
+    var epocaTacaPortugal = document.querySelector('#nEpocasTacaPt');
+    var epocaSuperTaca = document.querySelector('#nEpocasSupertaca');
+    //criacao do div que contem outras informacoes respeitantes à equipas
+    nomeEquipas.textContent = equipa[0].NomeTodo;
+    dataFundacaoEquipa.textContent = equipa[0].DataFundacao;
+    paisEquipa.textContent = equipa[0].Pais;
+    cidadeEquipa.textContent = equipa[0].Cidade;
+    presidenteEquipa.textContent = equipa[0].Presidente;
+   
+    //inserção na tabela
+    epocaCampNac.textContent = equipa[0].EpocaCampeonatoPortugues;
+    epocaCampMetropolitano.textContent = equipa[0].EpocaCampeonatoMetropolitano;
+    epocaTacaPortugal.textContent = equipa[0].EpocaTacaPortugal;
+    epocaSuperTaca.textContent = equipa[0].EpocaSupertacaAntonioLivramento;
+    
+}
+
+
 
 
 function mostraEcra2(id) {

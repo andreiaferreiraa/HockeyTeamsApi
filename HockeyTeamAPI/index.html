@@ -5,7 +5,32 @@
     <title></title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <link href="Css/Css.css" rel="stylesheet" />
+    <style>
+        table, th, td {
+            padding: 8px;
+        }
+        table {
+            float: right;
+            margin-right: 30px;
+            margin-bottom: 30px;
+            font-family: Century;
+            border:1px solid gray ;
+        }
+        td{
+            font-size:13px;
+
+        }
+        tr:nth-child(even) {
+            background-color: #f2f2f2
+        }
+        th {
+            text-align: center;
+            background-color: teal;
+            color:white;
+        }
+    </style>
 </head>
+
 <body>
 
     <div id="navegacao">
@@ -17,8 +42,64 @@
 
     </div>
 
-    <div id="jogadores">
-        
+    <div id="jogadores" style="display: none">
+        <div id="info"></div>
+        <div class="divOutrasInf">
+            <div class="divTituloInf">
+                <h5 class="tituloInf"> DADOS GERAIS DA EQUIPA</h5>
+            </div>
+            <div class="informacaoDireita">
+                <p class="nomeTodoTitulo">NOME</p>
+                <p class="nomeTodo"></p>
+                <p class="paisTitulo">PAÍS</p>
+                <p class="pais"></p>
+                <p class="presidenteTitulo">PRESIDENTE</p>
+                <p class="presidente"></p>
+            </div>
+            <div class="informacaoEsquerda">
+                <p class="dataFundTitulo">DATA DE FUNDAÇÃO</p>
+                <p class="dataFund"></p>
+                <p class="cidadeTitulo">CIDADE</p>
+                <p class="cidade"></p>
+            </div>
+            
+        </div>
+
+
+
+
+        <table width="700">
+            <!--<thead>-->
+                <tr class="linhaTabela">
+                    <th scope="col" width="300">COMPETIÇÃO</th>
+                    <th scope="col">TÍTULOS</th>
+                    <th scope="col">ÉPOCAS/ANOS</th>
+                </tr>
+            <!--</thead>-->
+            <!--<tbody>-->
+                <tr>
+                    <td>Campeonato Português</td>
+                    <td id="nTitulosCampNac"></td>
+                    <td id="nEpocasCampNac"></td>
+                </tr>
+                <tr>
+                    <td>Campeonato Metropolitano</th>
+                    <td  id="nTitulosCampMetro"></td>
+                    <td id="nEpocasCampMetro"></td>
+                </tr>
+                <tr>
+                    <td>Taça de Portugal</th>
+                    <td id="nTitulosTacaPt"></td>
+                    <td id="nEpocasTacaPt"></td>
+                </tr>
+                <tr>
+                    <td>Supertaça António Livramento</th>
+                    <td id="nTitulosSupertaca"></td>
+                    <td id="nEpocasSupertaca"></td>
+                </tr>
+            <!--</tbody>-->
+        </table>
+
     </div>
 
     <div id="detalhes" style="display:none">

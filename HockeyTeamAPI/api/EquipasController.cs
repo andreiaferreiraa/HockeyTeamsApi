@@ -44,12 +44,22 @@ namespace HockeyTeamAPI.Controllers
         [Route("api/equipas/{id}")]
         public IHttpActionResult GetEquipas(int id)
         {
+
             var resultado = db.Equipas.Select(equipa => new
             {
                 equipa.ID,
                 equipa.Nome,
+                equipa.NomeTodo,
+                equipa.DataFundacao,
+                equipa.Pais,
+                equipa.Cidade,
+                equipa.Presidente,
                 equipa.Logotipo,
-                equipa.Plantel
+                equipa.Plantel,
+                equipa.EpocaCampeonatoPortugues,
+                equipa.EpocaCampeonatoMetropolitano,
+                equipa.EpocaTacaPortugal,
+                equipa.EpocaSupertacaAntonioLivramento
             }).Where(equipa => equipa.ID == id).ToList();
 
             return Ok(resultado);
