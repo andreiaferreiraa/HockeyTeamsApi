@@ -79,28 +79,36 @@ function funcaoHomeIncon() {
 function ecraJogadores(id) {
     var divJogadores = document.querySelector('#info');
     //mostra o logotipo e nome da Equipa
+
     getEquipa(id)
         .then(function (equipas) {
             divJogadores.appendChild(mostraEquipas(equipas));
-            getJogadores(id)
-                .then(function (arrayJogadores) {
-                    var divDadosPlantel = document.createElement('div');
-                    divDadosPlantel.setAttribute('class', 'divDadosPlantel');
-                    var tituloPlantel = document.createElement('h4');
-                    tituloPlantel.setAttribute('class', 'tituloPlantel');
-                    tituloPlantel.textContent = "PLANTEL";
-                    divDadosPlantel.appendChild(tituloPlantel);
-                    divJogadores.appendChild(divDadosPlantel);
-                    var divJogadoresFotos = document.createElement('div');
-                    divJogadoresFotos.setAttribute('class', 'divJogadores');
-                    for (var i = 0; i < arrayJogadores.length; i++) {
-                        divJogadoresFotos.appendChild(mostraJogadores(arrayJogadores[i]));
-                    }
-                    divJogadores.appendChild(divJogadoresFotos);
-                    getEquipa(id)
-                        .then(function (equipa) {
-                            //divJogadores.appendChild(
-                            mostraDetalhesEquipa(equipa);
+            getEquipaHistoria(id)
+                .then(function (historia) {
+                    divJogadores.appendChild(mostraHistoriaEquipa(historia));
+                    getJogadores(id)
+                        .then(function (arrayJogadores) {
+                            var divDadosPlantel = document.createElement('div');
+                            divDadosPlantel.setAttribute('class', 'divDadosPlantel');
+                            var tituloPlantel = document.createElement('h4');
+                            tituloPlantel.setAttribute('class', 'tituloPlantel');
+                            tituloPlantel.textContent = "PLANTEL";
+                            divDadosPlantel.appendChild(tituloPlantel);
+                            divJogadores.appendChild(divDadosPlantel);
+                            var divJogadoresFotos = document.createElement('div');
+                            divJogadoresFotos.setAttribute('class', 'divJogadores');
+                            for (var i = 0; i < arrayJogadores.length; i++) {
+                                divJogadoresFotos.appendChild(mostraJogadores(arrayJogadores[i]));
+                            }
+                            divJogadores.appendChild(divJogadoresFotos);
+                            getEquipa(id)
+                                .then(function (equipa) {
+                                    //divJogadores.appendChild(
+                                    mostraDetalhesEquipa(equipa);
+                                })
+                                .catch(function (erro) {
+                                    console.error(erro);
+                                });
                         })
                         .catch(function (erro) {
                             console.error(erro);
@@ -114,9 +122,16 @@ function ecraJogadores(id) {
             console.error(erro);
         });
 
-    //mostra os jogadores dessa equipa
+}
 
-
+function mostraHistoriaEquipa(historia) {
+    var divHistoriaEquipa = document.createElement('div');
+    divHistoriaEquipa.setAttribute('class', 'divHistoriaEquipa');
+    var historiaEquipa = document.createElement('p');
+    historiaEquipa.setAttribute('class', 'historiaEquipa');
+    historiaEquipa.textContent = historia.Historia;
+    divHistoriaEquipa.appendChild(historiaEquipa);
+    return divHistoriaEquipa;
 }
 
 
@@ -188,13 +203,13 @@ function mostraDetalhesEquipa(equipa) {
     paisEquipa.textContent = equipa[0].Pais;
     cidadeEquipa.textContent = equipa[0].Cidade;
     presidenteEquipa.textContent = equipa[0].Presidente;
-   
+
     //inserção na tabela
     epocaCampNac.textContent = equipa[0].EpocaCampeonatoPortugues;
     epocaCampMetropolitano.textContent = equipa[0].EpocaCampeonatoMetropolitano;
     epocaTacaPortugal.textContent = equipa[0].EpocaTacaPortugal;
     epocaSuperTaca.textContent = equipa[0].EpocaSupertacaAntonioLivramento;
-    
+
 }
 
 
