@@ -117,6 +117,7 @@
     <Content Include="Global.asax" />
     <Content Include="Icons\Back.jpg" />
     <Content Include="Icons\Home.jpg" />
+    <Content Include="ImagensFundo\ImagemFundo.jpg" />
     <Content Include="index.html" />
     <Content Include="JogadoresFotosApi\AngeloGirao.jpg" />
     <Content Include="JogadoresFotosApi\Caio.jpg" />
@@ -145,6 +146,10 @@
     <Content Include="JogadoresFotosApi\XavierPuigbi.jpg" />
     <Content Include="Js\api.js" />
     <Content Include="Js\logic.js" />
+    <Content Include="Material\Caneleiras.jpg" />
+    <Content Include="Material\JoelheirasCaneleiras.jpg" />
+    <Content Include="Material\Patins.jpg" />
+    <Content Include="Material\Stick.jpg" />
     <Content Include="Multimédia\AngeloGirao1.jpg" />
     <Content Include="Multimédia\AngeloGirao2.jpg" />
     <Content Include="Multimédia\AngeloGirao3.jpg" />

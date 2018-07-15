@@ -65,6 +65,23 @@ namespace HockeyTeamAPI.Controllers
             return Ok(resultado);
         }
 
+        //GET : api/Equipas/Logotipo
+        [ResponseType(typeof(Equipas))]
+        [Route("api/equipas/logotipo")]
+        public IHttpActionResult GetLogotipo()
+        {
+            var resultado = db.Equipas
+               .Select(equipa => new
+               {
+                   equipa.Nome,
+                   equipa.Logotipo
+               })
+               .ToList();
+            return Ok(resultado);
+        }
+
+
+        //GET :api/Equipas/id/Historia
         [ResponseType(typeof(Equipas))]
         [Route("api/equipas/{id}/historia")]
         public IHttpActionResult GetHistoria(int id)
