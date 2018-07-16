@@ -1,7 +1,5 @@
 ﻿document.addEventListener('DOMContentLoaded', function main() {
     ecraInicial();
-    //ecraJogadores();
-    //ecraDetalhesJogadores();
 });
 
 //********************************************** ECRÃ INICIAL *******************************************************
@@ -12,7 +10,6 @@ function ecraInicial() {
             var divEquipasLogotipos = document.querySelector('.logotiposEquipas');
             for (i = 0; i < arrayLogotipos.length; i++) {
                 divEquipasLogotipos.appendChild(mostraLogotipos(arrayLogotipos[i]));
-                
             }
 
         })
@@ -154,23 +151,27 @@ function mostraJogadores(jogadores) {
 
     var divJogador = document.createElement('div');
     divJogador.setAttribute('class', 'divJogador');
-    //var divCadaJogador = document.createElement('div');
-    //divCadaJogador.setAttribute('class', 'divCadaJogador');
+    var divCadaJogador = document.createElement('div');
+    divCadaJogador.setAttribute('class', 'divCadaJogador');
     var fotoJogador = document.createElement('img');
     fotoJogador.setAttribute('class', 'fotoJogador1');
-    //var divNomeJogador = document.createElement('div');
-    //divNomeJogador.setAttribute('class', 'divNomeJogador');
-    //var nomeJogador = document.createElement('p');
-    //nomeJogador.setAttribute('class', 'nomeJogador');
+    var divNomeJogador = document.createElement('div');
+    divNomeJogador.setAttribute('class', 'divNomeJogador');
+    var nomeJogador = document.createElement('p');
+    nomeJogador.setAttribute('class', 'nomeJogador');
+
     //preencher o conteudo desses elementos
     fotoJogador.src = "JogadoresFotosApi/" + jogadores.Fotografia;
     fotoJogador.addEventListener('click', function () {
         mostraEcra2(jogadores.ID);
     });
-    //nomeJogador.textContent = jogadores.Nome;
+    nomeJogador.textContent = jogadores.Nome;
     //insersao dos elementos Html  dentro dos respetivos Div's
+    divNomeJogador.appendChild(nomeJogador);
+    divCadaJogador.appendChild(fotoJogador);
+    divCadaJogador.appendChild(divNomeJogador);
     //divNomeJogador.appendChild(nomeJogador);
-    divJogador.appendChild(fotoJogador);
+    divJogador.appendChild(divCadaJogador);
     //divJogador.appendChild(divNomeJogador);
     //divJogador.appendChild(nomeJogador);
     return divJogador;
@@ -181,7 +182,7 @@ function mostraDetalhesEquipa(equipa) {
     //selecao dos elementos HTML
     var divOutrasInformacoes = document.querySelector('.divOutrasInf');
     var nomeEquipas = document.querySelector('.nomeTodo');
-    var dataFundacaoEquipa = document.querySelector('.dataFund');
+    var dataFundacaoEquipa = document.querySelector('.dataFundacao');
     var paisEquipa = document.querySelector('.pais');
     var cidadeEquipa = document.querySelector('.cidade');
     var presidenteEquipa = document.querySelector('.presidente');
@@ -192,7 +193,7 @@ function mostraDetalhesEquipa(equipa) {
     var epocaSuperTaca = document.querySelector('#nEpocasSupertaca');
     //criacao do div que contem outras informacoes respeitantes à equipas
     nomeEquipas.textContent = equipa[0].NomeTodo;
-    dataFundacaoEquipa.textContent = equipa[0].DataFundacao;
+    dataFundacaoEquipa.textContent = equipa[0].dataFund;
     paisEquipa.textContent = equipa[0].Pais;
     cidadeEquipa.textContent = equipa[0].Cidade;
     presidenteEquipa.textContent = equipa[0].Presidente;

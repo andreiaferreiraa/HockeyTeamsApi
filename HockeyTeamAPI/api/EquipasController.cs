@@ -44,13 +44,19 @@ namespace HockeyTeamAPI.Controllers
         [Route("api/equipas/{id}")]
         public IHttpActionResult GetEquipas(int id)
         {
-
+            Equipas equipas = db.Equipas.Find(id);
+            if (equipas == null)
+            {
+                return NotFound();
+            }
+            
+            var dataFund = equipas.DataFundacao.ToString("dd/MM/yyyy");
             var resultado = db.Equipas.Select(equipa => new
             {
                 equipa.ID,
                 equipa.Nome,
                 equipa.NomeTodo,
-                equipa.DataFundacao,
+                dataFund,
                 equipa.Pais,
                 equipa.Cidade,
                 equipa.Presidente,
