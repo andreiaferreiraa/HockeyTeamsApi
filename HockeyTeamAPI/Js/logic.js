@@ -38,9 +38,9 @@ function mudar1aPagina(id) {
     var divInicial = document.querySelector('#inicial');
     var divPagJogadores = document.querySelector('#info');
     var icon = document.querySelector('#homeIcon');
-    var iconBack = document.querySelector('#iconBack');
+   var iconBack = document.querySelector('#iconBack');
     divPagJogadores.innerHTML = "";
-    ecraJogadores(id);
+   ecraJogadores(id);
     icon.style.display = 'block';
     iconBack.style.display = 'none';
     divInicial.style.display = 'none';
@@ -54,8 +54,6 @@ function funcaoHomeIncon() {
     var divPrincipal = document.querySelector('#inicial');
     var iconHome = document.querySelector('#homeIcon');
     var backIcon = document.querySelector('#iconBack');
-    divPrincipal.innerHTML = "";
-    ecraInicial();
     divPrincipal.style.display = 'block';
     divJogadores.style.display = 'none';
     divDetalhes.style.display = 'none';

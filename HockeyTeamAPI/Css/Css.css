@@ -35,8 +35,7 @@ hr.barraPagInicial {
     width: 100px;
     height: 100px;
     float: left;
-    margin-top: 10px;
-    margin-left: 133px;
+    margin: 10px 5.7%;
     transition: transform .2s;
 }
 
@@ -295,18 +294,20 @@ divCadaJogador:hover .divNomeJogador {
 .informacaoDireita{
     min-height:200px;
     float:left;
+    margin-left:10px;
     
 }
 
 .informacaoEsquerda {
     min-width:200px;
-    float:right;
-    margin-right:850px;
+    float:left;
+    margin-left:40px;
 
 }
 
 .tabela {
     float:right;
+    margin
 }
 
 
