@@ -149,27 +149,17 @@ function mostraJogadores(jogadores) {
 
     var divJogador = document.createElement('div');
     divJogador.setAttribute('class', 'divJogador');
-    var divCadaJogador = document.createElement('div');
-    divCadaJogador.setAttribute('class', 'divCadaJogador');
     var fotoJogador = document.createElement('img');
     fotoJogador.setAttribute('class', 'fotoJogador1');
-    var divNomeJogador = document.createElement('div');
-    divNomeJogador.setAttribute('class', 'divNomeJogador');
-    var nomeJogador = document.createElement('p');
-    nomeJogador.setAttribute('class', 'nomeJogador');
-
     //preencher o conteudo desses elementos
     fotoJogador.src = "JogadoresFotosApi/" + jogadores.Fotografia;
     fotoJogador.addEventListener('click', function () {
         mostraEcra2(jogadores.ID);
     });
-    nomeJogador.textContent = jogadores.Nome;
     //insersao dos elementos Html  dentro dos respetivos Div's
-    divNomeJogador.appendChild(nomeJogador);
-    divCadaJogador.appendChild(fotoJogador);
-    divCadaJogador.appendChild(divNomeJogador);
+    
     //divNomeJogador.appendChild(nomeJogador);
-    divJogador.appendChild(divCadaJogador);
+    divJogador.appendChild(fotoJogador);
     //divJogador.appendChild(divNomeJogador);
     //divJogador.appendChild(nomeJogador);
     return divJogador;

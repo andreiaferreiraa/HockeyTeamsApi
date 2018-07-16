@@ -160,6 +160,7 @@
     <Content Include="Multimédia\Caio3.jpg" />
     <Content Include="Multimédia\Caio4.jpg" />
     <Content Include="Multimédia\Caio5.jpg" />
+    <Content Include="Multimédia\CalosNicolia5.jpg" />
     <Content Include="Multimédia\CarlesGrau1.jpg" />
     <Content Include="Multimédia\CarlesGrau2.jpg" />
     <Content Include="Multimédia\CarlesGrau3.jpg" />
@@ -179,7 +180,6 @@
     <Content Include="Multimédia\DiogoRafael1.jpg" />
     <Content Include="Multimédia\DiogoRafael2.jpg" />
     <Content Include="Multimédia\DiogoRafael3.jpg" />
-    <Content Include="Multimédia\DiogoRafael4.jpg" />
     <Content Include="Multimédia\DiogoRafael5.jpg" />
     <Content Include="Multimédia\DiogoRafael6.jpg" />
     <Content Include="Multimédia\FerraFont1.jpg" />
@@ -200,9 +200,6 @@
     <Content Include="Multimédia\HelderNunes6.jpg" />
     <Content Include="Multimédia\HelderNunes7.jpg" />
     <Content Include="Multimédia\HenriqueMagalhaes1.jpg" />
-    <Content Include="Multimédia\HenriqueMagalhaes1.png" />
-    <Content Include="Multimédia\HenriqueMagalhaes2.jpg" />
-    <Content Include="Multimédia\HenriqueMagalhaes3.jpg" />
     <Content Include="Multimédia\HernaniDiniz1.jpg" />
     <Content Include="Multimédia\HernaniDiniz2.JPG" />
     <Content Include="Multimédia\HernaniDiniz3.jpg" />
@@ -211,6 +208,7 @@
     <Content Include="Multimédia\HernaniDiniz6.jpg" />
     <Content Include="Multimédia\HlederNunes5.jpg" />
     <Content Include="Multimédia\IvoSilva1.jpg" />
+    <Content Include="Multimédia\IvoSilva1.pg.jpg" />
     <Content Include="Multimédia\IvoSilva2.jpg" />
     <Content Include="Multimédia\IvoSilva3.jpg" />
     <Content Include="Multimédia\IvoSilva4.jpg" />
@@ -268,7 +266,7 @@
     <Content Include="Multimédia\PedroHenriques3.jpg" />
     <Content Include="Multimédia\PedroHenriques4.jpg" />
     <Content Include="Multimédia\PedroHenriques5.jpg" />
-    <Content Include="Multimédia\PedroHeriques6.jpg" />
+    <Content Include="Multimédia\PedroHenriques6.jpg" />
     <Content Include="Multimédia\PedroMartins1.jpg" />
     <Content Include="Multimédia\PedroMartins2.jpg" />
     <Content Include="Multimédia\PedroMartins3.jpg" />
@@ -296,11 +294,6 @@
     <Content Include="Multimédia\XavierPuigbi2.jpg" />
     <Content Include="Multimédia\XavierPuigbi3.jpg" />
     <Content Include="Multimédia\XavierPuigbi4.jpg" />
-    <Content Include="plantel\BenficaPlantel.jpg" />
-    <Content Include="plantel\OliveirensePlantel.jpg" />
-    <Content Include="plantel\PortoPlantel.jpg" />
-    <Content Include="plantel\SportingPlantel.jpg" />
-    <Content Include="plantel\TomarPlantel.jpg" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>

@@ -31,8 +31,7 @@ namespace HockeyTeamAPI.Controllers
                     equipa.Pais,
                     equipa.Cidade,
                     equipa.Presidente,
-                    equipa.Logotipo,
-                    equipa.Plantel
+                    equipa.Logotipo
 
                 })
                 .ToList();
@@ -106,45 +105,8 @@ namespace HockeyTeamAPI.Controllers
 
             return Ok(resultado);
         }
-
-
-
-
-        // GET: api/Equipas/Plantel
-        [HttpGet, Route("api/Equipas/plantel")]
-        //[ResponseType(typeof(Equipas))]
-        public IHttpActionResult GetPlantel()
-        {
-            var resultado = db.Equipas
-                .Select(equipas => new
-                {
-                    equipas.ID,
-                    equipas.Nome,
-                    equipas.Plantel
-
-                }).ToList();
-
-            return Ok(resultado);
-        }
-        // GET: api/Equipas/1/Plantel
-        [HttpGet, Route("api/Equipas/{id}/plantel")]
-        //[ResponseType(typeof(Equipas))]
-        public IHttpActionResult GetPlantelEquipa(int id)
-        {
-            Equipas equipas = db.Equipas.Find(id);
-            if (equipas == null)
-            {
-                return NotFound();
-            }
-           
-            var resultado = new
-            {
-                equipas.ID,
-                equipas.Plantel
-            };
-            return Ok(resultado);
-        }
-
+        
+      
 
         //GET : api/Equipas/1/Jogadores
         [Route("api/equipas/{id}/jogadores")]
