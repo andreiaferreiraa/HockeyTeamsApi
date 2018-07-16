@@ -36,49 +36,6 @@ function mostraLogotipos(equipas) {
 
 }
 
-
-
-
-
-
-//function ecraPlantel() {
-//    return getPlantel()
-//        .then(function (arrayPlantel) {
-//            var divPlantel = document.querySelector('#plantel');
-//            for (i = 0; i < arrayPlantel.length; i++) {
-//                divPlantel.appendChild(mostraPlantel(arrayPlantel[i]));
-//            }
-//        })
-//        .catch(function (erro) {
-//            console.error(erro);
-//        });
-//}
-
-
-//function mostraPlantel(plantel) {
-//    var divImagemPlantel = document.createElement('div');
-//    var imagemPlantel = document.createElement('img');
-//    imagemPlantel.setAttribute('class', 'imagemPlantel');
-//    var divNomeEquipa = document.createElement('div');
-
-//    imagemPlantel.src = "plantel/" + plantel.Plantel;
-//    imagemPlantel.addEventListener('click', function () {
-//        mudar1aPagina(plantel.ID);
-//    });
-//    var nomeEquipa = document.createElement('p');
-//    nomeEquipa.setAttribute('class', 'nomeEquipa');
-//    nomeEquipa.textContent = plantel.Nome;
-//    divNomeEquipa.appendChild(nomeEquipa);
-//    divImagemPlantel.appendChild(divNomeEquipa);
-//    divImagemPlantel.appendChild(imagemPlantel);
-//    return divImagemPlantel;
-//}
-
-//function cria(pos) {
-
-//    return imagemPlantel;
-//}
-
 //função que permite mudar do div inicial para o div dos jogadores
 function mudar1aPagina(id) {
     var divInicial = document.querySelector('#inicial');

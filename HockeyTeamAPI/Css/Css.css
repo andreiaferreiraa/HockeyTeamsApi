@@ -46,6 +46,25 @@ hr.barraPagInicial {
         transform: scale(1.10);
 }
 
+.tituloMaterialJogadores {
+    margin-left: 20px;
+    color: darkcyan;
+    font-style: italic;
+    font-weight: bold;
+}
+
+.divTituloMaterialJogadores {
+    margin-top: 10px;
+    margin-bottom: 10px;
+    margin: 0px 11px 5px 10px;
+    border-bottom: 1px solid darkcyan;
+}
+
+.divMaterialJogadores {
+    margin-top:20px;
+
+}
+
 
 div.material {
     width: 24%;
@@ -92,6 +111,14 @@ hr.barra1 {
     box-shadow: 0 10px 10px -10px #8c8b8b inset;
 }
 
+.historiaEquipa {
+    text-align:justify;
+    margin-left:50px;
+    margin-right:50px;
+
+
+}
+
 
 .divOutrasInf {
     /*float:left;*/
@@ -102,8 +129,15 @@ hr.barra1 {
 
 .divTituloInf {
     /*o primeiro é top, right, bottom, left*/
-    margin: 0px 500px 5px 10px;
-    border-bottom: 1px solid black;
+    margin: 0px 11px 5px 10px;
+    border-bottom: 1px solid darkcyan;
+}
+
+
+
+.divDadosPlantel {
+    margin: 0px 11px 5px 10px;
+    border-bottom: 1px solid darkcyan;
 }
 
 .tituloInf {
@@ -113,10 +147,6 @@ hr.barra1 {
     font-weight:bold;
 }
 
-.divDadosPlantel {
-    margin: 0px 500px 5px 10px;
-    border-bottom: 1px solid black;
-}
 
 .tituloPlantel {
     margin-left: 20px;
@@ -261,7 +291,7 @@ hr.barra1 {
 
 
 .nomeJogador {
-    font-family: 'Roboto Condensed', sans-serif;
+    font-family: unset;
     margin-left: 20px;
     margin-top: 20px;
     color: dimgray;
