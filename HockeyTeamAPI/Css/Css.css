@@ -28,7 +28,7 @@ hr.barraPagInicial {
     height: 10px;
     border: 0;
     box-shadow: 0 10px 10px -10px #8c8b8b inset;
-} 
+}
 
 
 .imagemLogotipo {
@@ -37,29 +37,44 @@ hr.barraPagInicial {
     float: left;
     margin-top: 10px;
     margin-left: 133px;
+    transition: transform .2s;
+}
+
+.imagemLogotipo:hover {
+        -ms-transform: scale(1.5); /* IE 9 */
+        -webkit-transform: scale(1.5); /* Safari 3-8 */
+        transform: scale(1.10);
 }
 
 
-
-#carouselExampleControls {
-    width: 500px;
-    height: 400px;
-    margin-left: auto;
-    margin-right: auto;
-    margin-bottom: 100px;
+div.material {
+    width: 24%;
+    background-color: white;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.7), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    margin-bottom: 25px;
 }
 
+div.legenda {
+    text-align: center;
+    padding: 10px 20px;
+}
 
+.material {
+    width: 298px;
+    float:left;
+    margin-left:10px
+    
+}
 
-
-
+    
+    
 .logotipo {
-    width: 100px;
-    height: 100px;
-    float: left;
-    margin-top: 10px;
-    margin-left: 10px;
-}
+        width: 100px;
+        height: 100px;
+        float: left;
+        margin-top: 10px;
+        margin-left: 10px;
+    }
 
 .nomeEquipa {
     text-align: center;
